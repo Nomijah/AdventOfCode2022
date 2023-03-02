@@ -1,0 +1,119 @@
+﻿    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] input = File.ReadAllLines(@"C:/Users/pette/Documents/AoC10.txt");
+            List<Action> actionList = new List<Action>();
+            foreach (string s in input)
+            {
+                if (s != "noop")
+                {
+                    string[] temp = s.Split(" ");
+                    actionList.Add(new Action(temp[0], Convert.ToInt32(temp[1])));
+                }
+                else
+                {
+                    actionList.Add(new Action(s, 0));
+                }
+            }
+
+            int spritePos = 0;
+            int writePos = 0;
+            List<char> screenOutput = new List<char>();
+
+            foreach (Action ac in actionList)
+            {
+                if (ac.action == "noop")
+                {
+                    screenOutput.Add(CheckSprite(writePos, spritePos));
+                    writePos++;
+                    if (writePos == 40)
+                    {
+                        writePos = 0;
+                    }
+                }
+                else
+                {
+                    screenOutput.Add(CheckSprite(writePos, spritePos));
+                    writePos++;
+                    if (writePos == 40)
+                    {
+                        writePos = 0;
+                    }
+                    screenOutput.Add(CheckSprite(writePos, spritePos));
+                    writePos++;
+                    if (writePos == 40)
+                    {
+                        writePos = 0;
+                    }
+                    spritePos += ac.value;
+                }
+            }
+
+            for (int i = 0; i < 240; i++)
+            {
+                if (i == 40 || i == 80 || i == 120 || i == 160 || i == 200 || i == 240)
+                {
+                    Console.WriteLine();
+                }
+                Console.Write(screenOutput[i]);
+            }
+
+
+            //// Solution part 1
+            //int x = 1;
+            //int cycles = 0;
+            //List<int> cycleList = new List<int>();
+            //foreach (Action ac in actionList)
+            //{
+            //    if (ac.action == "noop")
+            //    {
+            //        cycles++;
+            //        cycleList.Add(x);
+            //    }
+            //    else
+            //    {
+            //        cycles++;
+            //        cycleList.Add(x);
+            //        cycles++;
+            //        cycleList.Add(x);
+            //        x += ac.value;
+            //    }
+            //}
+
+            //int a = cycleList[19] * 20;
+            //int b = cycleList[59] * 60;
+            //int c = cycleList[99] * 100;
+            //int d = cycleList[139] * 140;
+            //int e = cycleList[179] * 180;
+            //int f = cycleList[219] * 220;
+
+            //int sum = a + b + c + d + e + f;
+
+            //Console.WriteLine(sum);
+        }
+
+        public static char CheckSprite(int a, int x)
+        {
+            if (a == x || a == x + 2 || a == x + 1)
+            {
+                return '#';
+            }
+            else
+            {
+                return '.';
+            }
+        }
+
+    }
+    public class Action
+    {
+        public string action;
+        public int value;
+
+        public Action(string s, int i)
+        {
+            action = s;
+            value = i;
+        }
+    }

@@ -1,0 +1,519 @@
+﻿    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] input = File.ReadAllLines(@"C:/users/pette/documents/AoC7.txt");
+            List<string[]> actionList = new List<string[]>();
+
+            foreach (string s in input)
+            {
+                string[] tempa = s.Split(" ");
+                actionList.Add(tempa);
+            }
+
+            //// Check if it goes to main directory more than once.
+            //foreach (string[] s in actionList)
+            //{
+
+            //    if (s[0] == "$" && s[1] != "ls")
+            //    {
+            //        if (s[2] == "/")
+            //        {
+            //            Console.WriteLine("Japp");
+            //        } 
+            //    }
+            //}
+            //Console.ReadKey();
+
+            // Make a new list with other formatting to work with
+            List<Tuple<string, uint>> formatList = new List<Tuple<string, uint>>();
+            int dirStepCounter = -2;
+            foreach (string[] s in actionList)
+            {
+                // If it is a command.
+                if (s[0] == "$")
+                {
+                    // If it is a directory action.
+                    if (s[1] == "cd")
+                    {
+                        // If it steps back in the directory.
+                        if (s[2] == "..")
+                        {
+                            dirStepCounter--;
+                            // Register each step back in directories.
+                            formatList.Add(Tuple.Create<string, uint>("0", 0));
+                        }
+                        // If it goes to main directory.
+                        else if (s[2] == "/")
+                        {
+                            // This only happens in the first row, as checked above.
+                            dirStepCounter++;
+                        }
+                        // If it goes into a directory.
+                        else
+                        {
+                            dirStepCounter++;
+                        }
+                    }
+                    // If it lists the current directory.
+                    else if (s[1] == "ls")
+                    {
+                        // Do nothing.
+                    }
+                }
+                // If it is a directory.
+                if (s[0] == "dir")
+                {
+                    // Do nothing.
+                }
+                // If it is a file.
+                else if (uint.TryParse(s[0], out uint fileSize))
+                {
+                    formatList.Add(Tuple.Create<string, uint>($"a{dirStepCounter}", fileSize));
+                }
+            }
+
+            //// Check for highest and lowest value in item1, the lazy way (scroll thorugh the list).
+            //foreach (Tuple<string, uint> item in formatList)
+            //{
+            //    Console.WriteLine($"{item.Item1}. {item.Item2}");
+            //}
+
+            // Create counters for each directory level in a dictionary.
+            List<Tuple<string, uint>> dirList = new List<Tuple<string, uint>>()
+            {
+                { Tuple.Create<string,uint>("a0",0) },
+                { Tuple.Create<string,uint>("a1",0) },
+                { Tuple.Create<string,uint>("a2",0) },
+                { Tuple.Create<string,uint>("a3",0) },
+                { Tuple.Create<string,uint>("a4",0) },
+                { Tuple.Create<string,uint>("a5",0) },
+                { Tuple.Create<string,uint>("a6",0) },
+                { Tuple.Create<string,uint>("a7",0) },
+                { Tuple.Create<string,uint>("a8",0) },
+                { Tuple.Create<string,uint>("a9",0) },
+            };
+
+            List<Container> totalList = new List<Container>();
+            // The number of Item1 in the first tuple will be the starting point.
+            int stepCounter = 0;
+            int currentStep = 0;
+            int underDirAmount = 0;
+            foreach (Tuple<string, uint> item in formatList)
+            {
+                // If it is not a step back
+                if (item.Item1 != "0")
+                {
+                    stepCounter = 0;
+                    currentStep = Convert.ToInt32(item.Item1[1] - 48);
+                    underDirAmount = Convert.ToInt32(item.Item1[1] - 48);
+                    dirList = AddSize(item.Item1, item.Item2, dirList);
+                }
+
+                else if (item.Item1 == "0")
+                {
+
+                    // The first step back from a directory
+                    if (stepCounter == 0)
+                    {
+                        dirList = EmptyAndGetValue($"a{currentStep}", dirList, out uint value);
+                        Container temp = new Container($"a{currentStep}", value);
+                        totalList.Add(temp);
+                        stepCounter++;
+                        currentStep--;
+                    }
+                    else if (stepCounter == 1)
+                    {
+                        dirList = EmptyAndGetValue($"a{currentStep}", dirList, out uint value);
+                        Container temp = new Container($"a{currentStep}", value);
+                        totalList.Add(temp);
+                        stepCounter++;
+                        currentStep--;
+                    }
+                    else if (stepCounter == 2)
+                    {
+                        dirList = EmptyAndGetValue($"a{currentStep}", dirList, out uint value);
+                        Container temp = new Container($"a{currentStep}", value);
+                        totalList.Add(temp);
+                        stepCounter++;
+                        currentStep--;
+                    }
+                    else if (stepCounter == 3)
+                    {
+                        dirList = EmptyAndGetValue($"a{currentStep}", dirList, out uint value);
+                        Container temp = new Container($"a{currentStep}", value);
+                        totalList.Add(temp);
+                        stepCounter++;
+                        currentStep--;
+                    }
+                    else if (stepCounter == 4)
+                    {
+                        dirList = EmptyAndGetValue($"a{currentStep}", dirList, out uint value);
+                        Container temp = new Container($"a{currentStep}", value);
+                        totalList.Add(temp);
+                        stepCounter++;
+                        currentStep--;
+                    }
+                    else if (stepCounter == 5)
+                    {
+                        dirList = EmptyAndGetValue($"a{currentStep}", dirList, out uint value);
+                        Container temp = new Container($"a{currentStep}", value);
+                        totalList.Add(temp);
+                        stepCounter++;
+                        currentStep--;
+                    }
+                    else if (stepCounter == 6)
+                    {
+                        dirList = EmptyAndGetValue($"a{currentStep}", dirList, out uint value);
+                        Container temp = new Container($"a{currentStep}", value);
+                        totalList.Add(temp);
+                        stepCounter++;
+                        currentStep--;
+                    }
+                    else if (stepCounter == 7)
+                    {
+                        dirList = EmptyAndGetValue($"a{currentStep}", dirList, out uint value);
+                        Container temp = new Container($"a{currentStep}", value);
+                        totalList.Add(temp);
+                        stepCounter++;
+                        currentStep--;
+                    }
+                    else if (stepCounter == 8)
+                    {
+                        dirList = EmptyAndGetValue($"a{currentStep}", dirList, out uint value);
+                        Container temp = new Container($"a{currentStep}", value);
+                        totalList.Add(temp);
+                        stepCounter++;
+                        currentStep--;
+                    }
+                }
+            }
+            // Last index will not be processed in the loop, so I do it here.
+            dirList = EmptyAndGetValue($"a0", dirList, out uint value1);
+            Container tempb = new Container($"a{currentStep}", value1);
+            totalList.Add(tempb);
+
+            //// Print out list to check values.
+            //int counter = 1;
+            //foreach (Container sum in totalList)
+            //{
+            //    Console.WriteLine($"{counter}. {sum.Item1} {sum.Item2}");
+            //    counter++;
+            //}
+
+            // Get sum of all files.
+            uint mainDirectorySize = 0;
+            foreach (Container item in totalList)
+            {
+                mainDirectorySize += item.Item2;
+            }
+
+            // Get sum of all directories with index 0.
+            List<int> indexOfa0 = Enumerable.Range(0, totalList.Count)
+             .Where(i => totalList[i].Item1 == "a0")
+             .ToList();
+
+            int startNum = 0;
+            foreach (int i in indexOfa0)
+            {
+                for (int j = startNum; j < i; j++)
+                {
+                    totalList[i].Item2 += totalList[j].Item2;
+                }
+                startNum = i + 1;
+            }
+
+            List<int> indexOfa1 = Enumerable.Range(0, totalList.Count)
+                .Where(i => totalList[i].Item1 == "a1")
+                .ToList();
+
+            startNum = 0;
+            foreach (int i in indexOfa1)
+            {
+                uint tempSum = 0;
+                for (int j = startNum; j < i; j++)
+                {
+                    if ((int)totalList[j].Item1[1] < (int)totalList[i].Item1[1])
+                    {
+                        tempSum = 0;
+                    }
+                    else
+                    {
+                        tempSum += totalList[j].Item2;
+                    }
+                }
+                totalList[i].Item2 += tempSum;
+                startNum = i + 1;
+            }
+
+            List<int> indexOfa2 = Enumerable.Range(0, totalList.Count)
+                .Where(i => totalList[i].Item1 == "a2")
+                .ToList();
+
+            startNum = 0;
+            foreach (int i in indexOfa2)
+            {
+                uint tempSum = 0;
+                for (int j = startNum; j < i; j++)
+                {
+                    if ((int)totalList[j].Item1[1] < (int)totalList[i].Item1[1])
+                    {
+                        tempSum = 0;
+                    }
+                    else
+                    {
+                        tempSum += totalList[j].Item2;
+                    }
+                }
+                totalList[i].Item2 += tempSum;
+                startNum = i + 1;
+            }
+
+            List<int> indexOfa3 = Enumerable.Range(0, totalList.Count)
+    .Where(i => totalList[i].Item1 == "a3")
+    .ToList();
+
+            startNum = indexOfa3[0];
+            foreach (int i in indexOfa3)
+            {
+                uint tempSum = 0;
+                for (int j = startNum; j < i; j++)
+                {
+                    if ((int)totalList[j].Item1[1] < (int)totalList[i].Item1[1])
+                    {
+                        tempSum = 0;
+                    }
+                    else
+                    {
+                        tempSum += totalList[j].Item2;
+                    }
+                }
+                totalList[i].Item2 += tempSum;
+                startNum = i + 1;
+            }
+
+            List<int> indexOfa4 = Enumerable.Range(0, totalList.Count)
+.Where(i => totalList[i].Item1 == "a4")
+.ToList();
+
+            startNum = indexOfa4[0];
+            foreach (int i in indexOfa4)
+            {
+                uint tempSum = 0;
+                for (int j = startNum; j < i; j++)
+                {
+                    if ((int)totalList[j].Item1[1] < (int)totalList[i].Item1[1])
+                    {
+                        tempSum = 0;
+                    }
+                    else
+                    {
+                        tempSum += totalList[j].Item2;
+                    }
+                }
+                totalList[i].Item2 += tempSum;
+                startNum = i + 1;
+            }
+
+            List<int> indexOfa5 = Enumerable.Range(0, totalList.Count)
+.Where(i => totalList[i].Item1 == "a5")
+.ToList();
+
+            startNum = indexOfa5[0];
+            foreach (int i in indexOfa5)
+            {
+                uint tempSum = 0;
+                for (int j = startNum; j < i; j++)
+                {
+                    if ((int)totalList[j].Item1[1] < (int)totalList[i].Item1[1])
+                    {
+                        tempSum = 0;
+                    }
+                    else
+                    {
+                        tempSum += totalList[j].Item2;
+                    }
+                }
+                totalList[i].Item2 += tempSum;
+                startNum = i + 1;
+            }
+
+            List<int> indexOfa6 = Enumerable.Range(0, totalList.Count)
+.Where(i => totalList[i].Item1 == "a6")
+.ToList();
+
+            startNum = indexOfa6[0];
+            foreach (int i in indexOfa6)
+            {
+                uint tempSum = 0;
+                for (int j = startNum; j < i; j++)
+                {
+                    if ((int)totalList[j].Item1[1] < (int)totalList[i].Item1[1])
+                    {
+                        tempSum = 0;
+                    }
+                    else
+                    {
+                        tempSum += totalList[j].Item2;
+                    }
+                }
+                totalList[i].Item2 += tempSum;
+                startNum = i + 1;
+            }
+
+            List<int> indexOfa7 = Enumerable.Range(0, totalList.Count)
+.Where(i => totalList[i].Item1 == "a7")
+.ToList();
+
+            startNum = indexOfa7[0];
+            foreach (int i in indexOfa7)
+            {
+                uint tempSum = 0;
+                for (int j = startNum; j < i; j++)
+                {
+                    if ((int)totalList[j].Item1[1] < (int)totalList[i].Item1[1])
+                    {
+                        tempSum = 0;
+                    }
+                    else
+                    {
+                        tempSum += totalList[j].Item2;
+                    }
+                }
+                totalList[i].Item2 += tempSum;
+                startNum = i + 1;
+            }
+
+            List<int> indexOfa8 = Enumerable.Range(0, totalList.Count)
+.Where(i => totalList[i].Item1 == "a8")
+.ToList();
+
+            startNum = indexOfa8[0] - 1;
+            foreach (int i in indexOfa8)
+            {
+                uint tempSum = 0;
+                for (int j = startNum; j < i; j++)
+                {
+                    if ((int)totalList[j].Item1[1] < (int)totalList[i].Item1[1])
+                    {
+                        tempSum = 0;
+                    }
+                    else
+                    {
+                        tempSum += totalList[j].Item2;
+                    }
+                }
+                totalList[i].Item2 += tempSum;
+                startNum = i + 1;
+            }
+
+            List<int> indexOfa9 = Enumerable.Range(0, totalList.Count)
+.Where(i => totalList[i].Item1 == "a9")
+.ToList();
+
+            startNum = indexOfa9[0];
+            foreach (int i in indexOfa9)
+            {
+                uint tempSum = 0;
+                for (int j = startNum; j < i; j++)
+                {
+                    if ((int)totalList[j].Item1[1] < (int)totalList[i].Item1[1])
+                    {
+                        tempSum = 0;
+                    }
+                    else
+                    {
+                        tempSum += totalList[j].Item2;
+                    }
+                }
+                totalList[i].Item2 += tempSum;
+                startNum = i + 1;
+            }
+
+            // Check file size needed to free for update.
+            uint neededSpace = mainDirectorySize - 40000000;
+
+            // List for directories close to file size needed
+            List<uint> deleteList = new List<uint>();
+            // Look for directories close to file size
+            foreach (var item in totalList)
+            {
+                if (item.Item2 >neededSpace && item.Item2 < neededSpace + 1000000)
+                {
+                    deleteList.Add(item.Item2);
+                }
+            }
+
+            // Sort the list and print the smallest directory
+            deleteList.Sort();
+            Console.WriteLine(deleteList[0]);
+
+
+            //counter = 1;
+            //foreach (var item in totalList)
+            //{
+            //    Console.WriteLine($"{counter}. {item.Item1}. {item.Item2}");
+            //    counter++;
+            //}
+
+            //uint total = 0;
+
+            //foreach (var item in totalList)
+            //{
+            //    if (item.Item2 <= 100000)
+            //    {
+            //        total += item.Item2;
+            //    }
+            //}
+            //Console.WriteLine(total);
+            //Console.ReadKey();
+        }
+
+        public static List<Tuple<string, uint>> AddSize(string name, uint number, List<Tuple<string, uint>> dirList)
+        {
+            uint temp = 0;
+            int index = 0;
+            foreach (Tuple<string, uint> item in dirList)
+            {
+                if (item.Item1 == name)
+                {
+                    temp = item.Item2 + number;
+                    index = dirList.IndexOf(item);
+                    break;
+                }
+            }
+            dirList.RemoveAt(index);
+            dirList.Add(Tuple.Create<string, uint>(name, temp));
+            return dirList;
+        }
+
+        public static List<Tuple<string, uint>> EmptyAndGetValue(string name, List<Tuple<string, uint>> dirList, out uint value)
+        {
+            int index = 0;
+            value = 0;
+            foreach (Tuple<string, uint> item in dirList)
+            {
+                if (item.Item1 == name)
+                {
+                    index = dirList.IndexOf(item);
+                    value = item.Item2;
+                    break;
+                }
+            }
+            dirList.RemoveAt(index);
+            dirList.Add(Tuple.Create<string, uint>(name, 0));
+            return dirList;
+        }
+
+    }
+    public class Container
+    {
+        public string Item1;
+        public uint Item2;
+
+        public Container(string a, uint b)
+        {
+            Item1 = a;
+            Item2 = b;
+        }
+    }

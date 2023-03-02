@@ -1,0 +1,204 @@
+﻿    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] input = File.ReadAllLines(@"C:\Users\pette\Documents\Aoc14.txt");
+            List<Point> pointList = new List<Point>();
+            foreach (string s1 in input)
+            {
+                string[] temp1 = s1.Split(" -> ");
+                int preX = 0;
+                int preY = 0;
+                foreach (string s2 in temp1)
+                {
+                    string[] temp2 = s2.Split(",");
+                    int curX = Convert.ToInt32(temp2[0]);
+                    int curY = Convert.ToInt32(temp2[1]);
+                    if (preX != 0 && preX != curX)
+                    {
+                        if (preX < curX)
+                        {
+                            for (int i = 1; i < curX - preX; i++)
+                            {
+                                pointList.Add(new Point('#', preX + i, curY));
+                            }
+                        }
+                        else if (preX > curX)
+                        {
+                            for (int i = 1; i < preX - curX; i++)
+                            {
+                                pointList.Add(new Point('#', preX - i, curY));
+                            }
+                        }
+                    }
+                    else if (preY != 0 && preY != curY)
+                    {
+                        if (preY < curY)
+                        {
+                            for (int i = 1; i < curY - preY; i++)
+                            {
+                                pointList.Add(new Point('#', curX, preY + i));
+                            }
+                        }
+                        else if (preY > curY)
+                        {
+                            for (int i = 1; i < preY - curY; i++)
+                            {
+                                pointList.Add(new Point('#', curX, preY - i));
+                            }
+                        }
+                    }
+                    pointList.Add(new Point('#', curX, curY));
+                    preX = curX;
+                    preY = curY;
+                }
+            }
+
+            int highX = 0;
+            int lowX = 500;
+            int highY = 0;
+            int lowY = 100;
+            foreach (Point p in pointList)
+            {
+                if (p.x > highX)
+                {
+                    highX = p.x;
+                }
+                if (p.x < lowX)
+                {
+                    lowX = p.x;
+                }
+                if (p.y > highY)
+                {
+                    highY = p.y;
+                }
+                if (p.y < lowY)
+                {
+                    lowY = p.y;
+                }
+            }
+
+            int width = highX - lowX + 401;
+            int height = highY - lowY + 16;
+
+            // Creates map (2-d array).
+            Point[,] map = new Point[height, width];
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    map[i, j] = new Point('.', j, i);
+                }
+                Console.WriteLine();
+            }
+
+            // Adds all rock.
+            foreach (Point p in pointList)
+            {
+                map[p.y - lowY + 13, p.x - lowX + 200].materia = '#';
+            }
+
+            // Add bottom rocks.
+            for (int i = 0; i < map.GetLength(1); i++)
+            {
+                map[map.GetLength(0) - 1, i].materia = '#';
+            }
+
+            //// Prints overview.
+            //for (int i = 0; i < map.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < map.GetLength(1); j++)
+            //    {
+            //        Console.Write(map[i, j].materia);
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //Console.WriteLine();
+            //Console.WriteLine();
+            //Console.WriteLine();
+
+            int sandStart = 500 - lowX + 200;
+            int x = sandStart;
+            int y = 0;
+            do
+            //for (int i = 0; i < 20000000; i++)
+            {
+                if (map[y, x].materia == '.')
+                {
+                    if (map[y + 1, x].materia != '.')
+                    {
+                        if (map[y + 1, x - 1].materia != '.')
+                        {
+                            if (map[y + 1, x + 1].materia != '.')
+                            {
+                                map[y, x].materia = 'o';
+                                y = 0;
+                                x = sandStart;
+                            }
+                            else
+                            {
+                                y++;
+                                x++;
+
+                            }
+                        }
+                        else
+                        {
+                            y++;
+                            x--;
+                        }
+                    }
+                    else
+                    {
+                        y++;
+                    }
+                }
+                else if (map[y, x].materia == 'o')
+                {
+                    break;
+                }
+            } while (y < height - 1 && x != 0);
+
+            // Prints overview.
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    Console.Write(map[i, j].materia);
+                }
+                Console.WriteLine();
+            }
+
+            int sum = 0;
+            foreach (Point p in map)
+            {
+                if (p.materia == 'o')
+                {
+                    sum++;
+                }
+            }
+
+            Console.WriteLine(sum);
+
+            Console.ReadKey();
+        }
+    }
+}
+
+public class Point
+{
+    public char materia;
+    public int x;
+    public int y;
+
+    public Point(char m, int x, int y)
+    {
+        materia = m;
+        this.x = x;
+        this.y = y;
+    }
+    public Point()
+    {
+        materia = '.';
+    }

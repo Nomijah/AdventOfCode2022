@@ -1,0 +1,198 @@
+﻿    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] input = File.ReadAllLines(@"C:/Users/pette/Documents/AoC9.txt");
+            List<Action> actionList = new List<Action>();
+            foreach (string s in input)
+            {
+                actionList.Add(new Action(s[0], Convert.ToInt32(s[2..])));
+            }
+
+            // Create all 10 knots
+            RopeEnd H = new RopeEnd(0, 0);
+            RopeEnd a1 = new RopeEnd(0, 0);
+            RopeEnd a2 = new RopeEnd(0, 0);
+            RopeEnd a3 = new RopeEnd(0, 0);
+            RopeEnd a4 = new RopeEnd(0, 0);
+            RopeEnd a5 = new RopeEnd(0, 0);
+            RopeEnd a6 = new RopeEnd(0, 0);
+            RopeEnd a7 = new RopeEnd(0, 0);
+            RopeEnd a8 = new RopeEnd(0, 0);
+            RopeEnd a9 = new RopeEnd(0, 0);
+
+            // Loop through actions.
+            foreach (Action a in actionList)
+            {
+                // One step at a time, check positions and adjust according
+                // to instructions for every knot.
+                for (int i = 0; i < a.steps; i++)
+                {
+                    H = RopeEnd.MoveHead(H, a.dir);
+                    a1 = RopeEnd.CheckKnot(H, a1);
+                    a2 = RopeEnd.CheckKnot(a1, a2);
+                    a3 = RopeEnd.CheckKnot(a2, a3);
+                    a4 = RopeEnd.CheckKnot(a3, a4);
+                    a5 = RopeEnd.CheckKnot(a4, a5);
+                    a6 = RopeEnd.CheckKnot(a5, a6);
+                    a7 = RopeEnd.CheckKnot(a6, a7);
+                    a8 = RopeEnd.CheckKnot(a7, a8);
+                    a9 = RopeEnd.CheckKnot(a8, a9);
+                    // Check tails position and update list if it's a new coordinate
+                    if (!RopeEnd.FindFootprint(a9))
+                    {
+                        RopeEnd.AddToList(a9);
+                    }
+                }
+            }
+
+            // Print out total coordinates visited.
+            Console.WriteLine(RopeEnd.footPrints.Count);
+        }
+    }
+
+    public class Action
+    {
+        public int steps;
+        public char dir;
+
+        public Action(char dir, int steps)
+        {
+            this.steps = steps;
+            this.dir = dir;
+        }
+    }
+
+    public class RopeEnd
+    {
+        public int x;
+        public int y;
+
+        public RopeEnd(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        // Create list of positions and add starting point as first entry
+        public static List<Tuple<int, int>> footPrints = new List<Tuple<int, int>>() { Tuple.Create<int, int>(0, 0) };
+
+        // Moves the head one step in ordered direction
+        public static RopeEnd MoveHead(RopeEnd A, char dir)
+        {
+            if (dir == 'U')
+            {
+                A.x++;
+            }
+            else if (dir == 'D')
+            {
+                A.x--;
+            }
+            else if (dir == 'R')
+            {
+                A.y++;
+            }
+            else if (dir == 'L')
+            {
+                A.y--;
+            }
+            return A;
+        }
+
+        // Checks if current knot is too far away from previous and moves if it is.
+        public static RopeEnd CheckKnot(RopeEnd A, RopeEnd B)
+        {
+            // If previous knot is more than one step above current.
+            if (A.x - B.x > 1)
+            {
+                if (A.y == B.y)
+                {
+                    B.x++;
+                }
+                else if (A.y > B.y)
+                {
+                    B.x++;
+                    B.y++;
+                }
+                else if (A.y < B.y)
+                {
+                    B.x++;
+                    B.y--;
+                }
+            }
+            // If head is more than one step below tail
+            else if (A.x - B.x < -1)
+            {
+                if (A.y == B.y)
+                {
+                    B.x--;
+                }
+                else if (A.y > B.y)
+                {
+                    B.x--;
+                    B.y++;
+                }
+                else if (A.y < B.y)
+                {
+                    B.x--;
+                    B.y--;
+                }
+
+            }
+            // If head is more than one step to the right of tail
+            if (A.y - B.y > 1)
+            {
+                if (A.x == B.x)
+                {
+                    B.y++;
+                }
+                else if (A.x > B.x)
+                {
+                    B.y++;
+                    B.x++;
+                }
+                else if (A.x < B.x)
+                {
+                    B.y++;
+                    B.x--;
+                }
+            }
+            // If head is more than one step to the left of tail
+            if (A.y - B.y < -1)
+            {
+                if (A.x == B.x)
+                {
+                    B.y--;
+                }
+                else if (A.x > B.x)
+                {
+                    B.y--;
+                    B.x++;
+                }
+                else if (A.x < B.x)
+                {
+                    B.y--;
+                    B.x--;
+                }
+            }
+            return B;
+        }
+
+        public static void AddToList(RopeEnd A)
+        {
+            footPrints.Add(Tuple.Create(A.x, A.y));
+        }
+
+        // Checks if current position has been registered.
+        public static bool FindFootprint(RopeEnd A)
+        {
+            foreach (Tuple<int, int> t in footPrints)
+            {
+                if (t.Item1 == A.x && t.Item2 == A.y)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }

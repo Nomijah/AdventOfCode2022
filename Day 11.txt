@@ -1,0 +1,142 @@
+﻿    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] input = File.ReadAllLines(@"C:/Users/pette/Documents/Aoc11.txt");
+            int counter = 0;
+            List<Monkey> monkeyList = new List<Monkey>();
+            foreach (string s in input)
+            {
+                switch (counter)
+                {
+                    case 0:
+                        monkeyList.Add(new Monkey($"a{Convert.ToInt32(s[7]) - 48}"));
+                        counter++;
+                        break;
+                    case 1:
+                        string temp = s.Remove(0, 18);
+                        string[] items = temp.Split(", ");
+                        foreach (string x in items)
+                        {
+                            long item = Convert.ToInt64(x);
+                            monkeyList[monkeyList.Count - 1].itemQ.Enqueue(item);
+                        }
+                        counter++;
+                        break;
+                    case 2:
+                        monkeyList[monkeyList.Count - 1].operation = s.Remove(0, 23);
+                        counter++;
+                        break;
+                    case 3:
+                        monkeyList[monkeyList.Count - 1].testNr = Convert.ToInt64(s[21..]);
+                        counter++;
+                        break;
+                    case 4:
+                        monkeyList[monkeyList.Count - 1].trueMonkey = Convert.ToInt32(s[29]) - 48;
+                        counter++;
+                        break;
+                    case 5:
+                        monkeyList[monkeyList.Count - 1].falseMonkey = Convert.ToInt32(s[30]) - 48;
+                        counter++;
+                        break;
+                    case 6:
+                        counter = 0;
+                        break;
+                }
+            }
+
+            long superModulo = 1;
+            foreach (Monkey m in monkeyList)
+            {
+                superModulo *= m.testNr;
+            }
+
+            // Let the monkeybusiness commence, play 20 times.
+            for (int i = 0; i < 10000; i++)
+            {
+                foreach (Monkey m in monkeyList)
+                {
+                    for (int j = m.itemQ.Count; j > 0; j--)
+                    {
+                        // Get item from queue.
+                        long temp = m.itemQ.Dequeue();
+                        // Check what operation the monkey has.
+                        if (m.operation[0] == '+')
+                        {
+                            temp += Convert.ToInt64(m.operation[2..]);
+                        }
+                        else if (m.operation[0] == '*')
+                        {
+                            if (m.operation[2..] == "old")
+                            {
+                                temp = temp * temp;
+                            }
+                            else
+                            {
+                                temp = temp * Convert.ToInt32(m.operation[2..]);
+                            }
+                        }
+                        // Add one to inspections counter.
+                        m.inspections++;
+                        //// Round down to number divisible by three.
+                        //temp -= temp % 3;
+                        //// Divide by three for relief.
+                        //temp /= 3;
+                        // Check if stress level is divisable by monkeys test number.
+                        temp %= superModulo;
+                        if (temp % m.testNr == 0)
+                        {
+                            monkeyList[m.trueMonkey].itemQ.Enqueue(temp);
+                        }
+                        else
+                        {
+                            monkeyList[m.falseMonkey].itemQ.Enqueue(temp);
+                        }
+                    }
+                }
+            }
+
+            foreach (Monkey m in monkeyList)
+            {
+                Console.WriteLine(m.inspections);
+            }
+            // Check for the two monkeys with most inspections.
+            long highest = 0;
+            long secondHighest = 0;
+            foreach (Monkey m in monkeyList)
+            {
+                if (m.inspections > highest)
+                {
+                    secondHighest = highest;
+                    highest = m.inspections;
+                }
+                else if (m.inspections > secondHighest)
+                {
+                    secondHighest = m.inspections;
+                }
+            }
+
+            // Multiply the numbers to get the result.
+            long sum = highest * secondHighest;
+
+            Console.WriteLine(sum);
+
+        }
+    }
+
+    public class Monkey
+    {
+        public string name;
+        public long testNr;
+        public string operation;
+        public int trueMonkey;
+        public int falseMonkey;
+        public long inspections;
+        public Queue<long> itemQ = new Queue<long>();
+
+        public Monkey(string name)
+        {
+            this.name = name;
+            inspections = 0;
+        }
+    }

@@ -1,0 +1,79 @@
+﻿            string input = "vGFhvGvvSdfwqhqvmCPnlFPnCNPcCFcWcr\r\nZbWZDMgsTHsrNNLJcJnsJl\r\nHbBWQgZVZZBzbgZphwjqpmmVfdGmjG\r\nvvCJLGnthChvtrvCCnRbTRqRPRBtbTRfPRRl\r\ndjZSgHNNwjqcdWlbcbfc\r\npFgMSfpMfzMDZFSgSjGJQQnCvMCVLnnJQLGC\r\ngVhQWQpcWZVwwHVvFvnnnnDFdL\r\nlzbPlztjltztzSjfGcPdTHLTHFCnnHCLndFGGd\r\njsNbzbczclttSlfbqlljRQMJRMMpJwRZhspZgJRM\r\nhLJvfGcNDttSGvJtvSSJcqbqFBBWbjQqDrqbjDDjjb\r\nlTswlzZdssgFpdPwZpMQnCjngCCjWBQBWWQqng\r\nPRZMpzPZTdVZTfJvFvLFRctJcf\r\nJHbQtHVHHLLbTJmmZddgdgwhllMNhhhTgg\r\nspqpNGDjDPMhCFChMj\r\nDBSDDGnpSDsDWqWczcvSqWvsBtJJLLZrRVZLJRbBZNVrBHrV\r\nGwGhfhPhpHccvwSwrTsmsCjDmqTfbDqjss\r\ntQntQcNRJMFnnVQFFctJqCsRmsTjjbDqDlTqTbWT\r\nNZdVBZZNFzMFNNNvGprZcLGPGrrpcP\r\nSvCPLrrlCSvZLrCPPBNPRvNLQBbpmbdggQTTfpfQgpgTqbbb\r\nHVjHwMVwWtdMGwtwMwdhDFgbJgJqTmFMfFfmmfTTpq\r\nwhtHVcjDtHWtsWdwVGVHthDPzRrNSsCRLrLRlZNzZSNzNR\r\nrjrlCCBtbtntwPPt\r\nFvfJHqBJQWWgWgWLwnMwMLbzvhwTTp\r\nWqHgWqBFgGfQgHfVdQFfVfrDllSsRSDmVmRCZZmSSSSZ\r\ngjnppCgGHNPrqqmFnnbr\r\ntGltVlJRtLRlrqcJcqZDqBJc\r\nVvhLlvWltWdVltRTLTfgwSjGNHhggQNQNjps\r\nHDWjCNfQjmwgWhcwPPVbZGcpMb\r\nsFltFBRRSRJBSSsBlSSnRLPZbVGMVPZpMpPZpcMrFZMc\r\nBLTBsstlqBRRBSvJJBsHdgdDNHCQHvbdCjQNNW\r\nlRGzWLZNFwJVbVVGcJ\r\nHqqpjPvHQnJgVgTnbdTV\r\nrVvjBQHQrQhCrzlzWrRlDZ\r\njZjTZRSjZnhGZhzGnG\r\nHbnPHrCbBDMnhcrVLWWLLWWg\r\nMBwbCNDDptwNMttjdSnsqSRSFFdjtj\r\nbSfvcsNsDdccHHQm\r\nljrlplvBhDHDHHHHJl\r\njgpzhrzRrvhFRFrzFnWfZtTwSWZPbbqNbsTqsW\r\nvvCTvcDzHcgtvWjvcDcvgBCgwTdPFPpwpwmTSwwmdPwZpfZh\r\nrNLMNVqLGNrVsRNJNsPnGnnfnpSFGdfddndd\r\nVPQsMbVsPbzzvgCzgv\r\nwPsrqprHQQZsChZn\r\ncjgFLwWDlDltfLmTCnmWCnZZChCQ\r\nFccccSLGFwjVlfVLLtgdSPSpMpBMdMBRRdHdBp\r\nmQQcpmCCprrfLQqZVGqLGv\r\nPtsJdsMtTTTvFqLTnnqbGZ\r\nHjldthsHWztJzstZhBcHDDgpNpCpmrpgSD\r\nlCmhDljDJgWggcnh\r\nLdQrbdTDQGfGLPdqqFrHwRJcWRHgHBWHBJ\r\nsLqsGtDqdGQfSTsqtfqqVMzjCzlvllZljNpCsMMl\r\nCfLCZCCqqHlhSSrrtpRjpL\r\nmWQbnQZVTWwNdwmDSbpbrFptjDrjRj\r\nPJWVnTWPVnnclqqBsCCZHP\r\ntqvtbNCgqJSgZgZvSncrrcGjBGhcnVcR\r\nDswGQQQdRcjBnRDn\r\nsMdlFMQQpfZbvlNtZGgN\r\nRMlPllHtrlrlcZLsZfLcfwdDGD\r\nQppnQhTBgwQDJsGzLQ\r\ngTjnmjvphDSNMbtMbtMRHNVr\r\nRHHcChrVVChCWQmRnMZmnmbTbGmFnqTT\r\ngpzpfpszDwvDDNdwjdstnSMMHGMqvZnFTTZqbq\r\nDsDdpfppwHsgJdjzfdDjdssLPlRccPQQrJcchPQWWQRhlQcr\r\nrsrjQjnRnQZZqMmMMVqs\r\nWTSTdvJLvTGJTGCMGvzBBpVVqqFVzBzVmf\r\ntTSJhGLJbJhLJRRbHPQbnHHMrl\r\nGGgMgBJHWHhLWMhWhgfrhgWLzmsmlzTtzHmsmlszRtszRVlT\r\nbvScppfcQfcQSFCQpnPqwwTdRTvmzVssvswtddsv\r\nZDpqnPbQbPPnQbFbfSPSqbQJhGrjgMZBhWLrLrBBBBJWhg\r\nhQCCGCNhDmGFJsTt\r\nfcggBBpvBSrtsRTpRmpD\r\nwflWlBlfnvfWWgMNPPLhPnzhPmLQ\r\npcGGTvVpcQLLzSPPPpVBVQwngNqgsJqgJgqSngsJMqJg\r\nRZDFGhtCDGmWfWsNdwJhnMgwswqJ\r\nZCGjRGjZllFGHvvcTPjPTQpB\r\nFDVsWrFZnnnfNRJdgBBBMLsJLH\r\nwcThcTphvCThwTlblpzwGlpLRgHJWLgHLBHdHWJLBLWR\r\nmwcbPmClwlzlwvvbTmWbQSjZmZSrDnSNVZfVFnZf\r\ntMlttlFRSrcSFcwQSRwSzrMMPPGGPGLWgNfTNTcLPNPGBPPG\r\npbZVCDTqnCjVDHnHVnhBPBBbhBhbhgLgmWLh\r\nqZCJZJqqjjCVvvRQltlzTrJtMMMw\r\nQvvdBDdMbdFFJrMMjjmjCfCntC\r\nlHTPsNLPcfVZLnfj\r\nGgsWpHPpTPWpNsGvgdnDbQRQFRbdQg\r\njPNwllsVZjhslSjwGShZMdJDmmdmWLtMDDPHMPFd\r\nQbvpDrbBrtMbbHJmcH\r\nvznvzBRpBprQBqQZjNswwZDnSlGjZl\r\nPdNTzLQPLrVMzGcMtt\r\nFsSvDrvmrwDggHGwgV\r\nvlpZpZmfnmFTlTWJWdbrdh\r\nmZmnggMTSJrrmnrbmTbngJMtwPvwzzRvPGhQdGZPGPLvGvRd\r\nFFVBNHVlFlDfCsWwLwPzzhGPCvzhQv\r\nqBHLsDcfqFfDDfsFLNcNNBFsrgpMpnJSbnmTnrtmbMSqnpnr\r\nqjBNwBPNPspqddssbsTsMDhTDrThQb\r\ngvzZSZzFbgHnrHmn\r\nfcvfZcRSZFGfZcvFbGttcPfpVjWVwqBqdwNdwNNpqV\r\nRrTmtTrqznrnRCSqJrWlWDbhWVnfVDVWdclV\r\nQBBgHQGvHHQswLHQQLGLHdLhfhlZZFlsscVDZfWfDhVlZZ\r\ndLBMPpGPjLHPHPBHjjgQjHQztSJRztmrNCSCmSpmprrrrz\r\nHHWJgjjsJrPBWBjgWgDvbbvtbNDNVtttMPPp\r\nSnLTlhhNSntRVVLFVbbb\r\nChqdcNTNqqJCrQrQrrBC\r\nBvfLLngFLDrrlDFDDnGmGlmzqzdGqMMWWwWW\r\nRVsPbsbVZbjctccCcsCSPmdNqMqMWddwqVzhhNHwHd\r\ntcsjPZRctZTSbbtSbtsSjZznnJfJBrfJgLvJJDDBvpTrgp\r\nLJJsNdtJQtbWRJQttjGhjVnjcnzcsczGqj\r\nMDPPlvCwrTlZfMMvTlPTdVcVhVVjchSBrjccSnnq\r\nlgZCvTTZfMgHLptdRgmR\r\ngCDrJRNgJDZRCwMgqGbtVVjTjlFbbTtR\r\nmccnfcnSQScdvdcQQQpWdnWSjPqTbFFlbPqbPVGNjTPjtN\r\nNnzmpWmBBzzpzDgwhDghrZrw\r\nwcbVDBQwVBFQLFQDQcqQcLcJfpHJjmljGgMHfcfgGgjf\r\nPtnWMtSnlgJmWWmm\r\nnThPtRnzntstvrtRPqDFLMLdDwBBFLQDBT\r\nzshqnVqTwqHqZQgZDSZjpFjFFF\r\nPsBRvttdcgFFBSmc\r\nGlPsbLtrvrrrtJlCTnVTlwwfnhwVqH\r\nCvVVnFwWZnZwJZMNlCMNMpbMrrQG\r\ncpghqzqqtzbGMjTNclGN\r\nPqLBsgqBsSfBffShVmvRVwWsFpwZVpsn\r\nLzsLSScvscqNdGdgddQjCDbzhpCDbRbhDpDDwDwt\r\nZlMBBBnlMFVFHVMJflJjJBfhRnCbCDpRttRPDCbWpCRbpW\r\nmlrFmJrmscNGmsjm\r\nFqQjLRjfvTFvlPHHNPMBDDNDPR\r\nchWptpcWTzBPMsMMMBHW\r\nzcJghwJZpZcgnctccdzzpGQrbQbblFFlTCCFTbdCFCFq\r\nQcwNpCcQzpwtCGPPPnrGrfHfvN\r\nFgjhhhjMVFVjqRRqDBVBqvMZvdrHnPZWZvsnZHdWnv\r\nShBFhDVghhTBgBBFRRgRCmCPCcpPbwCmLTcCmbpb\r\nZzlzsBzZnWnsBhFRvfvvLfWqfvMv\r\nGgQGjjddHHPwpHpTGjPdHMvtvwJqLtJRFlRFRqMwLc\r\ndgbbdjpGGgTHGGgQgdpmpgblrBrhrhCBSSznChsVhBsmNB\r\nPhSwPdnpsmSWWcjjDFNqnc\r\nGJGCTLbTZTrlfflVLFchHDHHDFcVVN\r\nRhlhrllQZhCsPvRBvMtSvw\r\nGVgnrgTWGVGjLVjWSpvvNmPTmpQmzvhf\r\ntBbBDsFtszzSSbPZbh\r\nBqlqdcqSJtFMdMjWrnGCWRrWGG\r\nsJVJsQhMhPPSQMwdHRmmsmmwRmsr\r\nzLFjLDTBFNWWwrqrffldlRdFRq\r\nBLjzjTpzLpzWGTbQpMJvVMQwQhhMQM\r\nRqSztDRhJDLmRMLlfvsP\r\ndMdMMHZCsnbdvmbP\r\nVHcZVVcZTwTQpgHQcgFMFBpDDzBqqqDhqJSjSjJjSD\r\nrdMnMGjdHhfnjqWWDJPpGWPtvW\r\nPTBSQSSzZSBSCzQFFSlZTFSvcZpWWcJvtJppvZpLLcDVcv\r\nsgQCsBmmlFCPFFzTgTBgdNnrNndnMrrrfbrNjf\r\nbpZdggTjHbgLglpHjldvHpjdhTVzmhzzzFPzmhFsFQSFnhhN\r\nrPCDBcCCMPGcWDNNWQzQQSNQnNzQ\r\nfCCJtDtGGGfGBtGqBrrcfRBcvPwpLgdZZvHdljvqpvdwbpvl\r\nqpmsNldnlHlCqQlHsHNHwJpJMtwvvvjMvfWjpDtt\r\nTccVBScrzBzzTGPbVTPQhWjfMjwwRtJtjMtWDWWfDS\r\nFQFbzBGczGBFLnFmmqsCLg\r\nqpblblvpvJzStJDrhrnGrdhDfFqf\r\nggNQNwBgmTcgCBTBTQQjNfDCnZRRRrRGCnrFfdnhrC\r\nmjVFHQTHNjTwcmpzJzHltltbSssS\r\nWChWmdcmzndhFcZrrbvrVMVssj\r\nNQLDlDplpSJGpLfRRMZVBBGjVsGbbjbBZsGv\r\nQNDfNqlpLgSfNfNgNfpgpqwndwWwnCCnnTFMdHndzn\r\nZGRPTngTZMSGMGnhSgRjQHsPbqjmsWHQCQWbNN\r\nBFLLfpzVDBfDdlfQcsbVcNmQsqqbcC\r\nzFvdplLDLtzFmrrwMMtTrShZ\r\nnTdmnVCGqTsSBTqv\r\nHlMPwMlHfPSfBBmFBfSL\r\ntrHHwRHRwMHPMJQJHnDhbdRhdpCZmChNnd\r\nlwHWjzplvHqWHGsMLsLwLfgdfLdg\r\ntPJNPQmQmSGcTtFmctGmSCBgsBBRbLBRVdLVLCBBLgVf\r\nFPtTPQNPrPPQctTcNPSQJJPDjlzplnGDDjWWplWHhGvpnr\r\njwvvDbvsRsrrjrfvfrrZsPpCpmPJJPqlqWmzRJRTqq\r\nHdLttdSQHdLHMMtNdLMSTtHpCmPplWhCzmzmPWlJhlNplP\r\nBTSLtLLQtnVZDnffbwfw\r\nsnvQdrtrQprWpgmGLp\r\nFhzwlwHccBcljFBSDmHmLpgRmPDCffWL\r\nzFhllqjczzwJqqSqlZMsvJgVNMTbssVNnQbb\r\ndLZHrWjWPFZWZnPjZttjddFnMDVMGJMQqvMVGVRVpjVpGVvv\r\nzhzTwTlfTwCsShSgNhfzsQQqvMQStQMDGJJGvGQVvq\r\nTTwCBfsfBwhzwTBCzlmHZdLmBBbtLnLbFnnF\r\nBhBRLFmlBlmhgShHmhSlZlFgvbQNwvcsvMCcsQCwNQvNMsBw\r\nttWddDjrfjDcssscDbvH\r\njfjfPWdzdfjdnWpjtrzqnhmJGJFhSJRHSmSmlqlHmq\r\nQvJTgvsvghHRHHNbZvNZTRSzBBCLrDqzrfDDtJSqSLBC\r\ncPPwdcFFPDwfFrBrFfFfrC\r\nnppwdplpRvllsgDH\r\nBGLLWLLwHVZwHnNhwsMsrqMqhh\r\nSTlTpDpmjzmjjjgccqdsbNbBhlNnNMhsqs\r\npjmgjfSDSzmSgFzRZQfRRZLBVLVtZZ\r\nWHjddztMtVLNNFFTmbFPFPRw\r\nbJnvpQfqccQJZfpcbvCphcFGDPFGRwDGDDGwGsmPFnPF\r\nrvffQJZJqrpZCJZJQrQpvBvStlSWSzVSWBbzBLzjtjWWWj\r\nSJFMSMGSDLTsFgHvHL\r\nmNzRrRRzjzqqgPHvLTHjlvWg\r\nZLbRpRnRnCrbmnmrRRNnwbGfMwDwfDDdSVMdVJdd\r\nnsqTbhcDssPsPWsnchPJMSTSMmJMwTSTCJJfJw\r\nDHvFvvdHpvpGFHDMVVJVplCCVpggCl\r\nRdQjtvHtDQNGsZqzcqPqbNcq\r\nGFzRjczzQJnLjJvvTj\r\nmSfHrNHDzHDrDSSSBvTZLTNqWJWBWLlv\r\nPfgCmfPzDVrtHsddVMsRFcVFQM\r\nsfBgfBfBsHBHFGhsqfjgQZtQQMdZgbZQptbM\r\nrNLRSzRTrrvvLSTWGpjpNZdQPtGtMdNM\r\nwvSWLwzTGTCcwwwJwvwcrcRcVfFBqhhVhDqhBllBfFqBCDCs\r\nLbTpDTcMTSzzMLhScnDnSppNQwVNZFBVnFsrwQQZrQrQrN\r\ntJtJCRlGWljGWCtjJZVPsJBsVwQmrQNN\r\nfvHRftqjGfWGwtfGqvLTzDTzzzchSbMDTd\r\nJJhWZlhqLDHtBDrqrB\r\nbwwmfrSmbmFjVSFQwSdpDvGdpPnRvDtHpGtGPG\r\nVgFfcSQfFgmLLrNThllTZc\r\nQmfvrpnvrrJGnBSCFTBMSWFS\r\nNVMggbVPzCTgDFDD\r\nNRqHRZjVRZdRVdZwNPrMrchGhGpcGfvhQlHJ\r\nnlBdCldndlZTttSSBBccPfGWLLHcTTcWPbbW\r\njpsFzFmzDzNzDGChGcGGmPQHQf\r\nCNzqvvVJNFqvgRtlqRtdnwSZ\r\nMJtDbNHDDpmVPJVzzjLm\r\nRslhvlfRTWvWWRwfllSZngmggznjSPznLjmSnz\r\nTlhffRwWQhChDqbBQLFHqNrb\r\nHWnmSbzflWltlzLfWWDzjMBvCjjCTCgcMvzBBB\r\nqRRRZJwhZFGdRNfghVjMVVgfcghC\r\nQFFqwNNNwdNZZpqqZfnDSHmmlDLtWtHWlQmD\r\nJrFdNTTLRBTJrFVrBNdVLFBdlHbzQQsQzbPJtpbtltWsHbQw\r\ngZffDfMlCfjCSqMcpHPWHszstzHjQwpb\r\nGMnvfGlfvSqvcMMDgDDcfnqSVFRdmTmVdNBTdmRmBFVnLLBT\r\nZvRHtDcZntLZssMssQBrMdnC\r\njglqlVdlbqgVWjJMbrrBCpmQBBfrpm\r\nGqVVPPjPNjFVllNjJjFDvzTLZRvcLRLvTGdGDv\r\nfDVzvVfzzZPMsMbb\r\nLHtBwLBdhFgdHLLthRwFGGMsmrHMmmbZSmqbMGGG\r\nbblRwbTRlllfVQnCQn\r\nfVZzjRzpzpVCRPZhVWQvvLsWWWFQlmjWmG\r\nJDHgJdtwbZqJqsWBBDLlQlvLms\r\ncHHtdbqwrqbbtSbTgSTcVCMRZnRRVNhVPNMPpfMc\r\nfCMPBBdpMpsqMssQccnV\r\nTlwGWDjDZHLjZHHlLGmnlnNcRllsJcqtsJRV\r\nZHhZHThLLrGwjDDjLwGWWWSjPpbpzrvBFBFdBBbqvCbpFfpg\r\nbvDfDPtCVfFFVdWWpmLRmzWzzdBW\r\njgZTghhjrGrsswrsghHrlgTGzSRmMLwpJMSMzWLLWRzpRRSc\r\nlpjTpGHlpsNGTHllHrCFnDNPtVnvfQtQtQNP\r\nBwlQcwZBwwwQNqJTrrsRGCDTNt\r\nbMpVPSfRvCbCtTqsCs\r\ndPSRfRpPPjjmLMgZBZBLZZwFQnZn\r\nTsVfggTqVnsLVTdTpmDdRhwPRtPRDRwD\r\nljHBSWZvvFWvBFPppnQPwnpmzR\r\nMSHSjbBclBSjccLJgqgnLVqTbsTT\r\nzncfVgRzVJgnTfVqNHvZJZNJNMpHbdvH\r\nPCBpsLjPPmMGdHNdHBHZ\r\njSLlrhLPDWLrPrDCLPCfnpzcVRFcRTnlVncntT\r\nccvSgjHtRjcjSvjvSrBjzSHHwnJPbgwPPZVVVZnPpZlpwnlT\r\nffqNqGGsGWqLTNqZwdndPnnJJpZVJW\r\nsNmqhsCMQsMTmjrcmrHrRj\r\ngWWWzNVJDwDzVWVDGbGNnhTnHLsmhmhfsQTNSmHd\r\nvtMPZvrZvqtqBHljrqSnnmTfLfdnQsjhjmhL\r\nMMPZPBqZCrBtvZcrBlDbGbbbzHJCbbRwgwDz\r\nhGSRhsMswhcNNGwhwncMnCqCJNrHJPJJrJtCJdqHJm\r\nBgVTzWBdTfCmfCJH\r\ndlbVFvvWVZhSRQDMnlhc\r\nWfpzBZmgJlQVGvWF\r\nwHSbrHwmccnrmrHsClGqFGbQjQjjQJQQGv\r\nSHPwwsRcrrNtrNSsphmZLzpfzhghZPdD\r\nDFDPRpmgbPQtmgBBQDDNJTMMBZsqsZGqGZTGCGSqWG\r\nfVvVVLcJVzlvzhqfSTCsZsMGMHqq\r\nzJdrrdnzcLlwczwbQmQngRDQPbtDpQ\r\nHDZZrpFqwRrQfBqhjjlVlQ\r\nczTgvvWPNgPGcTlsQflCVshClC\r\nPgNvtSJNvGVMMzNzgGvPGGLHFDdFdmZSZRdDdRrmpFwL\r\nSVHNVFVPBHJqHhgFCgzLmCwppm\r\nDvDdsGZljDlfdZnjnnZGMzLpRgLfMCLmzfPLhmgp\r\njZDZlrvrZTrTrTQrDsjslHNJqtWbWHbqbPBWNVQWBJ\r\nNmGGBdWWJDJTTZHm\r\nhFVhcqFjncpcppSjqfppqDvzDDDbbDZvDZZbHfJgvJ\r\njrPqnnHnqSPwPGWPdWst\r\nBfhbwMwbbPbHPPPlrdJjrlMJLrJVTd\r\npnQnGnWDjnJdlJCh\r\nqshsWvpttzNNQDtzRRPvwfcPHBBBHwbw\r\nSHzGRQjhwwhGzjjwRjfBqpqbNCqNnnqqQqPlQC\r\nTZtgLmZgVmgdFgmZtdrbNqnqlNlpblnlrnBd\r\nDvgmvvZgmWJJjwHHhJSzps\r\nJjlrlJjPJgDjJjJnDRDjNwGGqMvSddvPvwQddqSVvq\r\nSLpphFLhFZhWLzvswwWqsqVVQWdv\r\nFSHtTLZpfzRDDrJgRNjT\r\nwjCMvrMlqqWHvWqddrHqgnBNhcffthhVLtpgLBnw\r\nGbQFZzZZphnpgNZV\r\nFhFzRTDRPzsRQGQGTFlllrJHjdsJlHMqjjHr\r\nLqDcTbmJcqSJSTmnrTcmJrfffplfjZsGZfGGZfQLdplj\r\nhWddgBvzWFZfPsQlGh\r\nRBWBRCdHtgHttVVzHBVNNNDwSTDcSSSbScDDwbwbnmRS\r\nFFPzwlZVVrzFFlFLVlllZdHCHPQMnJQQbhhChdhCbb\r\nBRRqGBgRfqvgvBDDDTRgghNCMMTQNNbVJMNJJdbbdT\r\nDfpgjGfsRWrFVzwLcs\r\nPMTSdSmFjhFpNTqvppvRBrRBrDqB\r\nHnZZznJbzGZGlZtZWHlJGcGcwMvQBsrwRDQvcDgrgDgrqRvq\r\nHGlGfnJZfMMCfNhm\r\nnRssqlqVRppVwdMMQwFgtRFz\r\nsmTvLLTvvNLtwMMQNg\r\nCmPGBvZGWvBSGGDmTZjZlhpJcpHDJsbDnlrrprpl\r\ndjcQGNQqdGdGqMCgndwgCLDMgW\r\nnvBvHpBppnvPPnJTBWLJVMwVfWJfCbfWgW\r\nhsHHpBsvRTHpsPszTBTTsRTslGqGqlcqlScnqmhZmmZSZSjl\r\nDddBHCmfWCBTDBHTHfMpzhzpJJMJsFrGrz\r\ntPVPmbnttjPnZvSvSbnmZPZPNpNGMpJNzzNrGJpvhsshMpFs\r\nmwnZcbmmStbVtVjbZVlcLTBlcLCRHRDWCWWW";
+            string[] inputArray = input.Split("\r\n");
+            Regex upperCase = new Regex(@"[A-Z]");
+            int totalValue = 0;
+
+            List<string[]> elfGroupList = new List<string[]>();
+            int counter = 0;
+            // Part 2 solution
+            foreach (string s in inputArray)
+            {
+                if (counter == 0)
+                {
+                    string[] tempArray = new string[3];
+                    elfGroupList.Add(tempArray);
+                }
+                elfGroupList[elfGroupList.Count - 1][counter] = s;
+                counter++;
+                if (counter == 3)
+                {
+                    counter = 0;
+                }
+            }
+
+            string badgeChar = "";
+            foreach (string[] elfGroup in elfGroupList)
+            {
+                for (int i = 0; i < elfGroup[0].Length; i++)
+                {
+                    for (int j = 0; j < elfGroup[1].Length; j++)
+                    {
+                        // If a match is found between first two strings
+                        if (elfGroup[0][i] == elfGroup[1][j])
+                        {
+                            for (int k = 0; k < elfGroup[2].Length; k++)
+                            {
+                                if (elfGroup[0][i] == elfGroup[2][k])
+                                {
+                                    badgeChar = Convert.ToString(elfGroup[0][i]);
+                                }
+                            }
+                        }
+                    }
+                }
+                if (upperCase.IsMatch(badgeChar))
+                {
+                    totalValue += (int)badgeChar[0] - 38;
+                }
+                else
+                {
+                    totalValue += (int)badgeChar[0] - 96;
+                }
+            }
+
+            Console.WriteLine(totalValue);
+
+            // Part 1 solution
+            //foreach (string s in inputArray)
+            //{
+            //    string temp = "";
+            //    for (int i = 0; i < s.Length/2; i++)
+            //    {
+            //        for (int j = s.Length/2; j < s.Length; j++)
+            //        {
+            //            if (s[i] == s[j])
+            //            {
+            //                temp = Convert.ToString(s[i]);
+            //            }
+            //        }
+            //    }
+            //    if (upperCase.IsMatch(temp))
+            //    {
+            //        totalValue += (int)temp[0] - 38;
+            //    }
+            //    else
+            //    {
+            //        totalValue += (int)temp[0] - 96;
+            //    }
+            //}
+            //Console.WriteLine(totalValue);

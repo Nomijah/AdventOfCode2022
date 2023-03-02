@@ -1,0 +1,135 @@
+﻿    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] input = File.ReadAllLines(@"C:/Users/pette/Documents/Aoc8.txt");
+            //string inp = "30373\r\n25512\r\n65332\r\n33549\r\n35390";
+            //string[] input = inp.Split("\r\n");
+            Tree[,] forest = new Tree[input.GetLength(0), input.Count<string>()];
+            for (int i = 0; i < forest.GetLength(0); i++)
+            {
+                for (int j = 0; j < forest.GetLength(1); j++)
+                {
+                    forest[i, j] = new Tree((int)input[i][j] - 48);
+                }
+            }
+
+            // Switch outer trees to visible
+            for (int i = 0; i < forest.GetLength(0); i++)
+            {
+                forest[i, 0].visible = true;
+                forest[i, forest.GetLength(1) - 1].visible = true;
+                forest[0, i].visible = true;
+                forest[forest.GetLength(0) - 1, i].visible = true;
+            }
+
+            for (int i = 1; i < forest.GetLength(0) - 1; i++)
+            {
+                for (int j = 1; j < forest.GetLength(1) - 1; j++)
+                {
+                    // Check for higher or equal trees in the west
+                    for (int k = 0; k < forest.GetLength(0); k++)
+                    {
+                        if (k < j)
+                        {
+                            if (forest[i, k].height >= forest[i, j].height)
+                            {
+                                forest[i, j].westFound = true;
+                            }
+                        }
+                    }
+                    // Check for higher or equal trees in the east
+                    for (int k = forest.GetLength(0) - 1; k >= 0; k--)
+                    {
+                        if (k > j)
+                        {
+                            if (forest[i, k].height >= forest[i, j].height)
+                            {
+                                forest[i, j].eastFound = true;
+                            }
+                        }
+                    }
+                    // Check for higher or equal trees in the north
+                    for (int k = 0; k < forest.GetLength(1); k++)
+                    {
+                        if (k < i)
+                        {
+                            if (forest[k, j].height >= forest[i, j].height)
+                            {
+                                forest[i, j].northFound = true;
+                            }
+                        }
+                    }
+                    // Check for higher or equal trees in the south
+                    for (int k = forest.GetLength(1) - 1; k >= 0; k--)
+                    {
+                        if (k > i)
+                        {
+                            if (forest[k, j].height >= forest[i, j].height)
+                            {
+                                forest[i, j].southFound = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // If one of the directions is false, the tree is visible.
+            for (int i = 0; i < forest.GetLength(0) - 1; i++)
+            {
+                for (int j = 0; j < forest.GetLength(1) - 1; j++)
+                {
+                    if (forest[i, j].eastFound && forest[i, j].westFound && forest[i, j].northFound && forest[i, j].southFound)
+                    {
+                        forest[i, j].visible = false;
+                    }
+                }
+            }
+
+            int treeCounter = 0;
+            foreach (Tree tree in forest)
+            {
+                if (tree.visible)
+                {
+                    treeCounter++;
+                }
+            }
+
+            //for (int i = 0; i < forest.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < forest.GetLength(1); j++)
+            //    {
+            //        if (forest[i, j].visible)
+            //        {
+            //            treeCounter++;
+            //        }
+            //    }
+            //}
+
+
+            //Console.WriteLine($"{forest[1,3].eastFound}\n{forest[1,3].westFound}\n{forest[1,3].northFound}\n{forest[1,3].southFound}");
+            //for (int i = 0; i < 99; i++)
+            //{
+            //    Console.WriteLine($"{forest[5,i].visible} north {forest[5,i].northFound} " +
+            //        $"south {forest[5, i].southFound} east {forest[5, i].eastFound} west {forest[5, i].westFound}");
+            //}
+            Console.WriteLine(treeCounter);
+            Console.ReadKey();
+
+        }
+    }
+
+    public class Tree
+    {
+        public bool visible = true;
+        public int height;
+        public bool westFound = false;
+        public bool eastFound = false;
+        public bool northFound = false;
+        public bool southFound = false;
+
+        public Tree(int height)
+        {
+            this.height = height;
+        }
+    }
